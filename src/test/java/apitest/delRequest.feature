@@ -6,7 +6,7 @@ Feature: Delete request regress
 
   @test
   Scenario: Test Delete data in regress
-    When path '/api/users/3'
+    When path '/user/prapti65'
     And method delete
-    Then status 204
+    Then status 200
     And print response

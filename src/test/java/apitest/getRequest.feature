@@ -8,8 +8,7 @@ Feature: Test get request
 
     # Get list user and assert status
   Scenario: User get list users page 1
-    When path '/api/users'
-    And param page = 1
+    When path '/user/prapti65/'
     And method get
     Then status 200
     And print response
@@ -17,10 +16,10 @@ Feature: Test get request
   @get @test
   Scenario: User get user data using id
     # declare variable userid
-    * def userid = 2
+    * def userid = 112233445566
 
     # path
-    When path '/api/users/'+userid
+    When path '/user/prapti65'
     # http request method
     And method get
     # get status
@@ -28,13 +27,13 @@ Feature: Test get request
     # Assertion body response : id
     And print response
     And assert response.data.id == userid
-    And assert response.data.first_name == 'Janet'
+    And assert response.data.firstName == 'prapti'
     # assert data.avatar is not null
-    And match response.data contains { "avatar": '#notnull'}
+    And match response.data contains { "password": '#notnull'}
     # assert jsonschema validation
     And match response == '#object'
-      * string jsonData = response
+    * string jsonData = response
     # location file JSONSchemaUtil in folder plugins
-      * def SchemaUtils = Java.type('plugins.JSONSchemaUtil')
-      * assert SchemaUtils.isValid(jsonData, jsonSchemaExpected)
+    * def SchemaUtils = Java.type('plugins.JSONSchemaUtil')
+    * assert SchemaUtils.isValid(jsonData, jsonSchemaExpected)
 

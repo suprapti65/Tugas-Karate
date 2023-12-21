@@ -8,12 +8,12 @@ function fn() {
     env: env,
     username: 'belajarKuy',
     password: 'cobajadulu',
-    baseURL: 'https://reqres.in/'
+    baseURL: 'https://petstore.swagger.io/v2'
   }
   if (env == 'dev') {
-    config.baseURL = 'https://reqres.in/dev'
+    config.baseURL = 'https://petstore.swagger.io/v2/dev'
   } else if (env == 'stg') {
-    config.baseURL = 'https://reqres.in/stg'
+    config.baseURL = 'https://petstore.swagger.io/v2/stg'
   }
 
   karate.configure('connectTimeout',30000)
